@@ -21,19 +21,19 @@ namespace back.Controllers
         }
 
         [HttpGet]
-        public List<Quote> GetQuotes()
+        public List<Quote> GetAll()
         {
             return new List<Quote>();
         }
 
         [HttpGet]
-        public Quote GetQuote(int id)
+        public Quote Get(int id)
         {
             return new Quote();
         }
 
         [HttpPost]
-        public object PayQuote()
+        public object Pay()
         {
             return new object();
         }
