@@ -1,0 +1,33 @@
+.nav-bar {
+  width: 100%;
+  background-color: #ca3e3e;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start; /* Esto alinea los elementos a la derecha */
+}
+
+@media screen and (max-width: 600px) {
+  ul {
+    justify-content: center;
+  }
+  
+}
+
+.nav-item:hover {
+  background-color: #a12929;
+}
+
+.nav-item {
+  text-decoration: none;
+  display: block;
+  padding: 8px;
+  max-width: 200px; /* Esto limita el ancho de los elementos de la lista */
+  align-items: center;
+  justify-self: center;
+  color: #fff;
+}
