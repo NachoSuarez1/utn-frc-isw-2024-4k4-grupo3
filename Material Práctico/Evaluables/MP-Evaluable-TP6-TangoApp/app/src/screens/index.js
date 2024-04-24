@@ -1,3 +1,5 @@
-import {CotizacionesScreen} from "./Cotizaciones.screen.jsx";
-export { CotizacionesScreen };
+import {QuotesScreen} from "./Quotes.screen.jsx";
+import {PaymentScreen} from "./Payment.screen.jsx";
+
+export { QuotesScreen, PaymentScreen };
 

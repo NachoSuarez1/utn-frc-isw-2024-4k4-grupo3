@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Table, Tag, Button, Modal } from "antd";
 import { useState } from "react";
 import { TableQuotes } from "../components";
+import { colors } from "../config/colors";
 
-export const CotizacionesScreen = () => {
+export const QuotesScreen = () => {
   const [quotes, setQuotes] = useState([]);
 
   const dataSource = [
@@ -31,8 +30,8 @@ export const CotizacionesScreen = () => {
   ];
 
   return (
-    <div className="cotizaciones">
-      <h1>Listado de Cotizaciones de Pedido #1234</h1>
+    <div className="quotes">
+      <h1 style={{ color: colors.oxfordBlue }}>Listado de Cotizaciones de Pedido #1234</h1>
       <TableQuotes dataSource={dataSource} />;
     </div>
   );

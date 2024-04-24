@@ -1,1 +1,49 @@
+.ant-table .ant-table-container .ant-table-content table thead.ant-table-thead .ant-table-cell {
+  background-color: var(--charcoal);
+  color: #fff;
+}
 
+/* Borrar bordes de la tabla*/
+.ant-table-bordered .ant-table-container .ant-table-content {
+  border: none;
+}
+
+.ant-table-tbody > tr {
+  background-color: var(--silver);
+  color: var(--oxfordBlue) !important;
+  border: none;
+}
+
+.ant-table-cell-row-hover {
+  background-color: var(--silver) !important;
+  color: var(--oxfordBlue) !important;
+  border: none;
+}
+
+.ant-pagination .ant-pagination-item-active {
+  color: var(--oxfordBlue);
+  border-color: var(--oxfordBlue);
+  background-color: var(--silver);
+}
+
+.ant-pagination .ant-pagination-item-active a {
+  color: var(--oxfordBlue);
+}
+.ant-pagination .ant-pagination-item-active:hover {
+  background-color: var(--oxfordBlue);
+  border-color: var(--oxfordBlue);
+}
+.ant-pagination .ant-pagination-item-active:hover a {
+  color: var(--silver);
+}
+.btn-confirm:hover {
+  color: var(--silver) !important;
+  border-color: var(--silver) !important;
+  background-color: var(--greenP) !important;
+}
+
+.btn-confirm {
+  color: var(--greenP) ;
+  border-color: var(--greenP); 
+  background-color: var(--silver) !important;; 
+}

@@ -1,6 +1,6 @@
 .nav-bar {
   width: 100%;
-  background-color: #ca3e3e;
+  background-color: #364156;
 }
 
 ul {
@@ -15,11 +15,11 @@ ul {
   ul {
     justify-content: center;
   }
-  
 }
 
 .nav-item:hover {
-  background-color: #a12929;
+  background-color: #011638;
+  border-radius: 5px;
 }
 
 .nav-item {

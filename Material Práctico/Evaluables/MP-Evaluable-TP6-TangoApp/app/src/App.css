@@ -1,5 +1,16 @@
+:root {
+  --oxfordBlue: #011638;
+  --charcoal: #364156;
+  --silver: #cdcdcd;
+  --honeydew: #DFF8EB;
+  --greenP: #214E34;
+}
+
 .App {
   text-align: center;
+}
+body {
+  background-color: var(--silver);
 }
 
 .App-logo {

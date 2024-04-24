@@ -1,6 +1,7 @@
 export const colors = {
-  button: "#1A4D2E",
-  secondary: "#4F6F52",
-  tertiary: "#E8DFCA",
-  fourth: "#F5EFE6",
+  oxfordBlue: "#011638",
+  charcoal: "#364156",
+  silver: "#CDCDCD",
+  honeydew: "#DFF8EB",
+  green: "#214E34"
 };
