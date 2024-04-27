@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\utn-frc-isw-2024-4k4-grupo3\\material pr\u00E1ctico\\evaluables\\mp-evaluable-tp6-tangoapp\\back\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|solutionrelative:models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\utn-frc-isw-2024-4k4-grupo3\\material pr\u00E1ctico\\evaluables\\mp-evaluable-tp6-tangoapp\\back\\models\\quote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|solutionrelative:models\\quote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\utn-frc-isw-2024-4k4-grupo3\\material pr\u00E1ctico\\evaluables\\mp-evaluable-tp6-tangoapp\\back\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\utn-frc-isw-2024-4k4-grupo3\\material pr\u00E1ctico\\evaluables\\mp-evaluable-tp6-tangoapp\\back\\services\\notifications\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|solutionrelative:services\\notifications\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\utn-frc-isw-2024-4k4-grupo3\\material pr\u00E1ctico\\evaluables\\mp-evaluable-tp6-tangoapp\\back\\repositories\\efdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|solutionrelative:repositories\\efdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -87,53 +75,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "Models\\Order.cs",
-              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Models\\Order.cs",
-              "RelativeToolTip": "Models\\Order.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Title": "EFDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Repositories\\EFDbContext.cs",
+              "RelativeDocumentMoniker": "Repositories\\EFDbContext.cs",
+              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Repositories\\EFDbContext.cs",
+              "RelativeToolTip": "Repositories\\EFDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T19:03:38.71Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Quote.cs",
-              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Models\\Quote.cs",
-              "RelativeDocumentMoniker": "Models\\Quote.cs",
-              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Models\\Quote.cs",
-              "RelativeToolTip": "Models\\Quote.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAxwC0AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T18:59:34.78Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T18:59:31.787Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EmailSender.cs",
-              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Services\\Notifications\\EmailSender.cs",
-              "RelativeDocumentMoniker": "Services\\Notifications\\EmailSender.cs",
-              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Services\\Notifications\\EmailSender.cs",
-              "RelativeToolTip": "Services\\Notifications\\EmailSender.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T18:57:17.066Z",
+              "WhenOpened": "2024-04-27T21:22:43.452Z",
               "EditorCaption": ""
             }
           ]

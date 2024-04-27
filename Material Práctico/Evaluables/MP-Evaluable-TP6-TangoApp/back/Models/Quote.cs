@@ -1,16 +1,24 @@
-﻿namespace back.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace back.Models
 {
+    [Table("Quotes")]
     public class Quote
     {
+        [Column("id")]
         public int Id { get; set; }
-        public User User { get; set; }
-        public User Transport { get; set; }
+        [Column("pick_up_date")]
         public DateOnly PickUpDate { get; set; }
+        [Column("delivery_date")]
         public DateOnly DeliveryDate { get; set; }
+        [Column("amount")]
         public double Amount { get; set; }
+
+        public User Transport { get; set; }
         public State State { get; set; }
-        public List<PaymentOption> PaymentOptions { get; set; }
         public PaymentOption? SelectedPaymentOption { get; set; }
+
+        public List<PaymentOption> PaymentOptions { get; set; }
 
         #region Constructors
         public Quote()
@@ -45,17 +53,20 @@
         #endregion
     }
 
-    public enum State
+    [Table("States")]
+    public class State
     {
-        Confirmado,
-        Descartado,
-        Pendiente
+        [Column("id")]
+        public int Id { get; set; }
+        [Column("description")]
+        public string Description { get; set; }
     }
 
-    public enum PaymentOption
+    public class PaymentOption
     {
-        Tarjeta,
-        ContadoRetirar,
-        ContadoEntrega
+        [Column("id")]
+        public int Id { get; set; }
+        [Column("description")]
+        public string Description { get; set; }
     }
 }

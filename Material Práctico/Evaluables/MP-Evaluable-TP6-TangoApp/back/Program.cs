@@ -1,3 +1,5 @@
+using back.Repositories.Abstractions;
+using back.Repositories.Implementations;
 using back.Services.Notifications;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
@@ -11,6 +13,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddSingleton<IOrderRepository, EFOrderRepository>();
+builder.Services.AddSingleton<IQuoteRepository, EFQuoteRepository>();
+builder.Services.AddSingleton<IUserRepository, EFUserRepository>();
 
 var app = builder.Build();
 

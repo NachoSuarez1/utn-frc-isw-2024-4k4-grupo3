@@ -1,19 +1,21 @@
 --STATES
-INSERT INTO STATES(ID, DESCRIPTION) VALUES(1, 'Confirmado');
-INSERT INTO STATES(ID, DESCRIPTION) VALUES(2, 'Descartado');
-INSERT INTO STATES(ID, DESCRIPTION) VALUES(3, 'Pendiente');
+INSERT INTO States(ID, DESCRIPTION) VALUES
+(1, 'Confirmado'),
+(2, 'Descartado'),
+(3, 'Pendiente');
 
 --PAYMENT_OPTIONS
-INSERT INTO PAYMENT_OPTIONS(ID, DESCRIPTION) VALUES(1, 'Tarjeta');
-INSERT INTO PAYMENT_OPTIONS(ID, DESCRIPTION) VALUES(2, 'Contado al retirar');
-INSERT INTO PAYMENT_OPTIONS(ID, DESCRIPTION) VALUES(3, 'Contado contra entrega');
+INSERT INTO PAYMENT_OPTIONS(ID, DESCRIPTION) VALUES
+(1, 'Tarjeta'),
+(2, 'Contado al retirar'),
+(3, 'Contado contra entrega');
 
 --USERS
 INSERT INTO USERS(ID, FIRST_NAME, LAST_NAME, EMAIL, QUALIFICATION) VALUES
-(1, 'José', 'Cabral', "cabraljose1210@gmail.com", 4),
-(2, 'Benjamín', 'Cabral', "cabralbenja2001@gmail.com", 3),
-(3, 'Santiago', 'Gutierrez', "santi0gutierrez0@gmail.com", 5),
-(4, 'Ignacio', 'Suarez', "ignaciosuarez321@gmail.com", 2);
+(1, 'José', 'Cabral', 'cabraljose1210@gmail.com', 4),
+(2, 'Benjamín', 'Cabral', 'cabralbenja2001@gmail.com', 3),
+(3, 'Santiago', 'Gutierrez', 'santi0gutierrez0@gmail.com', 5),
+(4, 'Ignacio', 'Suarez', 'ignaciosuarez321@gmail.com', 2);
 
 --ORDERS
 INSERT INTO ORDERS(ID, USER_ID) VALUES
@@ -37,7 +39,7 @@ INSERT INTO QUOTES_X_PAYMENT_OPTIONS(QUOTE_ID, PAYMENT_OPTION_ID) VALUES
 (3, 3);
 
 --QUOTES_X_ORDERS
-INSERT INTO QUOTES_X_ORDERS(ORDER_IR, QUOTE_ID) VALUES
+INSERT INTO QUOTES_X_ORDER(ORDER_ID, QUOTE_ID) VALUES
 (1234, 1),
 (1234, 2),
 (1234, 3);
