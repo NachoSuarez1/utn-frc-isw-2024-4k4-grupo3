@@ -9,22 +9,8 @@ namespace back.Services.Notifications
         const string EMAIL = "tango-app@hotmail.com";
         const string PASSWORD = "$TangoEmailSender*123";
 
-        SmtpClient GetSmtpClient()
-        {
-            var client = new SmtpClient("smtp-mail.outlook.com", 587)
-            {
-                EnableSsl = true,
-                Credentials = new NetworkCredential(EMAIL, PASSWORD)
-            };
+        SmtpClient GetSmtpClient() => new SmtpClient("smtp-mail.outlook.com", 587) { EnableSsl = true, Credentials = new NetworkCredential(EMAIL, PASSWORD) };
 
-            return client;
-        }
-
-        public Task SendEmailAsync(string email, string subject, string htmlMessage) 
-            => GetSmtpClient().SendMailAsync(
-                from: EMAIL, 
-                recipients: email, 
-                subject: subject, 
-                body: htmlMessage);
+        public Task SendEmailAsync(string email, string subject, string htmlMessage) => GetSmtpClient().SendMailAsync(from: EMAIL, recipients: email, subject: subject, body: htmlMessage);
     }
 }
