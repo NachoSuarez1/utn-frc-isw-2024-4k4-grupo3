@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
-using back.Services.Payments;
 using back.Models;
-using back.Services.Notifications;
+using back.Services.Payments;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace back.Controllers
 {
@@ -11,29 +11,24 @@ namespace back.Controllers
     {
         private readonly ILogger<QuotesController> _logger;
         private IPaymentsServices _paymentsServices;
-        private INotificationSender _notificationSender;
+        private IEmailSender _emailSender;
 
-        public QuotesController(IPaymentsServices paymentsServices, INotificationSender notificationSender, ILogger<QuotesController> logger)
+        public QuotesController(IPaymentsServices paymentsServices, IEmailSender emailSender, ILogger<QuotesController> logger)
         {
             _logger = logger;
             _paymentsServices = paymentsServices;
-            _notificationSender = notificationSender;
+            _emailSender = emailSender;
         }
 
         [HttpGet]
-        public List<Quote> GetAll()
+        public List<Quote> Get(int orderId, int? quoteId)
         {
-            return new List<Quote>();
-        }
-
-        [HttpGet]
-        public Quote Get(int id)
-        {
-            return new Quote();
+            var quotes = new List<Quote>();
+            return quotes;
         }
 
         [HttpPost]
-        public object Pay()
+        public object Confirm()
         {
             return new object();
         }
