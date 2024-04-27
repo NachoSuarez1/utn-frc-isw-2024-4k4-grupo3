@@ -7,5 +7,7 @@ namespace back.Repositories.Implementations
     {
         private EFDbContext _context = new EFDbContext();
         public IEnumerable<PaymentOption> PaymentOptions { get { return _context.PaymentOptions; } }
+
+        public PaymentOption GetPaymentOption(int id) => _context.PaymentOptions.Where(p => p.Id == id).First();
     }
 }

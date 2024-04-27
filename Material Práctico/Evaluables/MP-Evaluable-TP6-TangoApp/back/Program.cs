@@ -1,6 +1,7 @@
 using back.Repositories.Abstractions;
 using back.Repositories.Implementations;
 using back.Services.Notifications;
+using back.Services.Payments;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,9 +14,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddTransient<IPaymentsServices, PaymentService>();
+
 builder.Services.AddSingleton<IOrderRepository, EFOrderRepository>();
 builder.Services.AddSingleton<IQuoteRepository, EFQuoteRepository>();
 builder.Services.AddSingleton<IUserRepository, EFUserRepository>();
+builder.Services.AddSingleton<IStateRepository, EFStateRepository>();
+builder.Services.AddSingleton<IPaymentOptionRepository, EFPaymentOptionRepository>();
 
 var app = builder.Build();
 

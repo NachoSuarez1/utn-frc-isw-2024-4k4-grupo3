@@ -7,5 +7,9 @@ namespace back.Repositories.Implementations
     {
         private EFDbContext _context = new EFDbContext();
         public IEnumerable<State> States { get { return _context.States; } }
+
+        public State GetConfirmed() => _context.States.Where(s => s.Id == 1).First();
+
+        public State GetDiscarded() => _context.States.Where(s => s.Id == 2).First();
     }
 }

@@ -2,5 +2,6 @@
 {
     public interface IPaymentsServices
     {
+        PaymentResult ProcessPayment(PaymentInfo paymentInfo);
     }
 }

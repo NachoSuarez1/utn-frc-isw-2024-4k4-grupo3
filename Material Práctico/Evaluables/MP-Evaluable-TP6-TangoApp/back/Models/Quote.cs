@@ -13,6 +13,8 @@ namespace back.Models
         public DateOnly DeliveryDate { get; set; }
         [Column("amount")]
         public double Amount { get; set; }
+        [Column("order_id")]
+        public int OrderId { get; set; }
 
         public User Transport { get; set; }
         public State State { get; set; }
@@ -40,16 +42,6 @@ namespace back.Models
             PaymentOptions = paymentOptions;
             SelectedPaymentOption = selectedPaymentOption;
         }
-        #endregion
-
-        #region States
-        public void Confirm(PaymentOption option)
-        {
-            State = State.Confirmado;
-            SelectedPaymentOption = option;
-        }
-        
-        public void Discard() => State = State.Descartado;
         #endregion
     }
 
