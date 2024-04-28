@@ -1,26 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\",
+  "WorkspaceRootPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\utn-frc-isw-2024-4k4-grupo3\\material pr\u00E1ctico\\evaluables\\mp-evaluable-tp6-tangoapp\\back\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\utn-frc-isw-2024-4k4-grupo3\\material pr\u00E1ctico\\evaluables\\mp-evaluable-tp6-tangoapp\\back\\services\\payments\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|solutionrelative:services\\payments\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\utn-frc-isw-2024-4k4-grupo3\\material pr\u00E1ctico\\evaluables\\mp-evaluable-tp6-tangoapp\\back\\controllers\\quotescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|solutionrelative:controllers\\quotescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\utn-frc-isw-2024-4k4-grupo3\\material pr\u00E1ctico\\evaluables\\mp-evaluable-tp6-tangoapp\\back\\services\\payments\\ipaymentsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|solutionrelative:services\\payments\\ipaymentsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\utn-frc-isw-2024-4k4-grupo3\\material pr\u00E1ctico\\evaluables\\mp-evaluable-tp6-tangoapp\\back\\repositories\\efdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CC5D3318-EC19-4B7A-8CF6-6EA4E5BDB18A}|back.csproj|solutionrelative:repositories\\efdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1F3BD5D6-C659-4CDC-BAD2-AB450860C14B}|back.csproj|c:\\users\\jose\\onedrive\\desktop\\utn - 2024\\isw\\back\\services\\payments\\paymentmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F3BD5D6-C659-4CDC-BAD2-AB450860C14B}|back.csproj|solutionrelative:services\\payments\\paymentmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -91,66 +75,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAABFAAAA",
+              "Title": "PaymentModels.cs",
+              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\Services\\Payments\\PaymentModels.cs",
+              "RelativeDocumentMoniker": "Services\\Payments\\PaymentModels.cs",
+              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\Services\\Payments\\PaymentModels.cs",
+              "RelativeToolTip": "Services\\Payments\\PaymentModels.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T22:32:28.7Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PaymentService.cs",
-              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Services\\Payments\\PaymentService.cs",
-              "RelativeDocumentMoniker": "Services\\Payments\\PaymentService.cs",
-              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Services\\Payments\\PaymentService.cs",
-              "RelativeToolTip": "Services\\Payments\\PaymentService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T22:30:05.108Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IPaymentsServices.cs",
-              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Services\\Payments\\IPaymentsServices.cs",
-              "RelativeDocumentMoniker": "Services\\Payments\\IPaymentsServices.cs",
-              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Services\\Payments\\IPaymentsServices.cs",
-              "RelativeToolTip": "Services\\Payments\\IPaymentsServices.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T22:17:27.875Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "QuotesController.cs",
-              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Controllers\\QuotesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\QuotesController.cs",
-              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Controllers\\QuotesController.cs",
-              "RelativeToolTip": "Controllers\\QuotesController.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAA1wHAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T21:28:44.503Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EFDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Repositories\\EFDbContext.cs",
-              "RelativeDocumentMoniker": "Repositories\\EFDbContext.cs",
-              "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Repositories\\EFDbContext.cs",
-              "RelativeToolTip": "Repositories\\EFDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-27T21:22:43.452Z",
+              "WhenOpened": "2024-04-28T21:40:08.02Z",
               "EditorCaption": ""
             }
           ]

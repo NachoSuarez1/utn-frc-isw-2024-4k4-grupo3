@@ -1,17 +1,18 @@
 ﻿namespace back.Services.Payments
 {
-    public class PaymentResult
+    public class PaymentRequest
     {
+        public string PaymentOption { get; set; }
+        public CardInfo? Card { get; set; }
     }
 
-    public class PaymentInfo
+    public class CardInfo
     {
+
     }
 
-    public class PaymentException : Exception
+    public class PaymentResponse
     {
-        public PaymentException(string message) : base(message)
-        {
-        }
+
     }
 }

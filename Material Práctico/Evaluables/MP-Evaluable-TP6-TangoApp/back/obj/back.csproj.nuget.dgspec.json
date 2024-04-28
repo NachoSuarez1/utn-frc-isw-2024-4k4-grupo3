@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Práctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\back.csproj": {}
+    "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\back.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Práctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\back.csproj": {
+    "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\back.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Práctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\back.csproj",
+        "projectUniqueName": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\back.csproj",
         "projectName": "back",
-        "projectPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Práctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\back.csproj",
+        "projectPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\back.csproj",
         "packagesPath": "C:\\Users\\jose\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Práctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\obj\\",
+        "outputPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -54,13 +54,23 @@
               "target": "Package",
               "version": "[8.0.4, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
-            },
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.6, )"
             }
           },
           "imports": [

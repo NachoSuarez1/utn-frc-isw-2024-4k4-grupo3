@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.UI.Services;
+﻿using System.Net.Mail;
 using System.Net;
-using System.Net.Mail;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace back.Services.Notifications
 {
@@ -11,6 +11,16 @@ namespace back.Services.Notifications
 
         SmtpClient GetSmtpClient() => new SmtpClient("smtp-mail.outlook.com", 587) { EnableSsl = true, Credentials = new NetworkCredential(EMAIL, PASSWORD) };
 
-        public Task SendEmailAsync(string email, string subject, string htmlMessage) => GetSmtpClient().SendMailAsync(from: EMAIL, recipients: email, subject: subject, body: htmlMessage);
+        public Task SendEmailAsync(string email, string subject, string htmlMessage)
+        {
+            var message = new MailMessage();
+            message.From = new MailAddress(EMAIL);
+            message.To.Add(new MailAddress(email));
+            message.Subject = subject;
+            message.Body = htmlMessage;
+            message.IsBodyHtml = true;
+
+            return GetSmtpClient().SendMailAsync(message);
+        }
     }
 }

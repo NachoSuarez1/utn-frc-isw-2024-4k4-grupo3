@@ -1,117 +1,59 @@
-using back.Models;
-using back.Repositories.Abstractions;
+﻿using back.Entities;
+using back.Entities.DTOs;
+using back.Services.EntityServices;
 using back.Services.Payments;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace back.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     public class QuotesController : ControllerBase
     {
-        IPaymentsServices _paymentsServices;
-        IEmailSender _emailSender;
-        QuotesService _quotesService;
-
-        public QuotesController(IPaymentsServices paymentsServices, IEmailSender emailSender, QuotesService quotesService)
+        QuoteServices _quoteServices { get; set; }
+        OrderServices _orderServices { get; set; }
+        IEmailSender _emailSender { get; set; }
+        public QuotesController(QuoteServices quoteServices, OrderServices orderServices, IEmailSender emailSender)
         {
-            _paymentsServices = paymentsServices;
+            _quoteServices = quoteServices;
+            _orderServices = orderServices;
             _emailSender = emailSender;
-            _quotesService = quotesService;
         }
 
-        [HttpGet]
-        public IActionResult Get(int orderId, int? quoteId) {
-            try {
-                var quotes = _quotesService.GetQuotes(orderId, quoteId);
-                return Ok(quotes);
-            }
-            catch (Exception ex) {
-                return NotFound(ex.Message);
-            }
-        } 
+        [HttpGet("/Get/{orderId}/{quoteId?}")]
+        public async Task<IActionResult> Get(int? orderId, int? quoteId)
+        {
+            if (orderId is null)
+                return BadRequest("El id de pedido no puede ser nulo!");
 
-        [HttpPut]
-        public IActionResult Confirm(int orderId, Quote quote, int selectedPaymentOption, PaymentInfo paymentInfo)
+            return Ok(_quoteServices.Get(orderId.Value, quoteId));
+        }
+
+        [HttpPut("/Confirm")]
+        public async Task<IActionResult> ConfirmQuote(int orderId, int quoteId, PaymentRequest paymentRequest)
         {
             try {
-                var payment = _quotesService.ConfirmQuote(orderId, quote, selectedPaymentOption, paymentInfo);
-                return Ok(payment);
-            }
-            catch (PaymentException pe) {
-                return BadRequest(pe.Message);
+                var confirmedQuote = _quoteServices.ConfirmQuote(orderId, quoteId, paymentRequest);
+                var order = _orderServices.GetOrder(confirmedQuote.OrderId);
+                await _emailSender.SendEmailAsync(order.User.Email, $"Confirmación de orden: {confirmedQuote.OrderId}", GetConfirmationEmailBody(order, confirmedQuote));
+                return Ok();
             }
             catch (Exception ex) {
-                return NotFound(ex);
+                return BadRequest(ex.Message);
             }
         }
-    }
 
-    public class QuotesService
-    {
-        IQuoteRepository _quotesRepository;
-        IStateRepository _stateRepository;
-        IPaymentOptionRepository _paymentOptionRepository;
-        IPaymentsServices _paymentsService;
-        
-        public QuotesService(IQuoteRepository quotesRepository, IStateRepository stateRepository, 
-            IPaymentOptionRepository paymentOptionRepository, IPaymentsServices paymentsServices)
+        [HttpPut("/SetPending")]
+        public async Task<IActionResult> SetPending(int orderId)
         {
-            _quotesRepository = quotesRepository;
-            _stateRepository = stateRepository;
-            _paymentOptionRepository = paymentOptionRepository;
-            _paymentsService = paymentsServices;
+            _quoteServices.SetPending(orderId);
+            return Ok();
         }
 
-        public List<Quote> GetQuotes(int orderId, int? quoteId = null)
+        string GetConfirmationEmailBody(Order order, Quote quote)
         {
-            var quotes = _quotesRepository.Quotes.Where(q => q.OrderId == orderId);
-            if (!quotes.Any())
-                throw new Exception("No hay cotizaciones para el Pedido seleccionado!");
-
-            if (quoteId is not null) {
-                quotes = quotes.Where(q => q.Id == quoteId).ToList();
-                if (!quotes.Any()) 
-                    throw new Exception("La cotizaci�n buscada no existe!");
-            }
-
-            return quotes.ToList();
-        }
-
-        public PaymentResult ConfirmQuote(int orderId, Quote quote, int selectedPaymentOption, PaymentInfo? paymentInfo = null)
-        {
-            var quotes = GetQuotes(orderId);
-            if (!quotes.Any())
-                throw new Exception("No hay cotizaciones para el Pedido seleccionado!");
-
-            var confirmedQuote = quotes.Where(q => q.Id == quote.Id);
-            if (confirmedQuote is null)
-                throw new Exception("La cotizaci�n confirmada no existe!");
-
-            var paymentOption = _paymentOptionRepository.GetPaymentOption(selectedPaymentOption);
-            var payment = new PaymentResult();
-            if (paymentOption.Description == "Tarjeta") {
-                if (paymentInfo is null)
-                    throw new PaymentException("Se seleccion� tarjeta, pero no hay informaci�n de Pago");
-                payment = _paymentsService.ProcessPayment(paymentInfo);
-            }
-
-            var confirmed = _stateRepository.GetConfirmed();
-            var discarded = _stateRepository.GetDiscarded();
-
-            foreach (var q in quotes) {
-                if (q.Id == quote.Id) {
-                    q.State = confirmed;
-                    q.SelectedPaymentOption = paymentOption;
-                }
-                else
-                    q.State = discarded;
-
-                _quotesRepository.Update(q);
-            }
-
-            return payment;
+            return $"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html dir=\"ltr\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:o=\"urn:schemas-microsoft-com:office:office\">\r\n   <head>\r\n      <meta charset=\"UTF-8\">\r\n      <meta content=\"width=device-width, initial-scale=1\" name=\"viewport\">\r\n      <meta name=\"x-apple-disable-message-reformatting\">\r\n      <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n      <meta content=\"telephone=no\" name=\"format-detection\">\r\n      <title></title>\r\n      <!--[if (mso 16)]>\r\n      <style type=\"text/css\">\r\n         a {{text-decoration: none;}}\r\n      </style>\r\n      <![endif]--><!--[if gte mso 9]>\r\n      <style>sup {{ font-size: 100% !important; }}</style>\r\n      <![endif]--><!--[if gte mso 9]>\r\n      <xml>\r\n         <o:OfficeDocumentSettings>\r\n            <o:AllowPNG></o:AllowPNG>\r\n            1\r\n            <o:PixelsPerInch>96</o:PixelsPerInch>\r\n         </o:OfficeDocumentSettings>\r\n      </xml>\r\n      <![endif]--><!--[if mso]>\r\n      <style type=\"text/css\">\r\n         ul {{\r\n         margin: 0 !important;\r\n         }}\r\n         ol {{\r\n         margin: 0 !important;\r\n         }}\r\n         li {{\r\n         margin-left: 47px !important;\r\n         }}\r\n      </style>\r\n      <![endif]\r\n      -->\r\n   </head>\r\n   <body class=\"body\">\r\n      <div dir=\"ltr\" class=\"es-wrapper-color\">\r\n         <!--[if gte mso 9]>\r\n         <v:background xmlns:v=\"urn:schemas-microsoft-com:vml\" fill=\"t\">\r\n            <v:fill type=\"tile\" color=\"#fafafa\"></v:fill>\r\n         </v:background>\r\n         <![endif]-->\r\n         <table class=\"es-wrapper\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">\r\n            <tbody>\r\n               <tr>\r\n                  <td class=\"esd-email-paddings\" valign=\"top\">\r\n                     <table cellpadding=\"0\" cellspacing=\"0\" class=\"es-content\" align=\"center\">\r\n                        <tbody>\r\n                           <tr>\r\n                              <td class=\"esd-stripe\" align=\"center\" bgcolor=\"#cdcdcd\" style=\"background-color:#cdcdcd\">\r\n                                 <table bgcolor=\"#ffffff\" class=\"es-content-body\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\r\n                                    <tbody>\r\n                                       <tr>\r\n                                          <td class=\"esd-structure es-p15t es-p20r es-p20l\" align=\"left\" bgcolor=\"#DFF8EB\" style=\"background-color:#DFF8EB\">\r\n                                             <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n                                                <tbody>\r\n                                                   <tr>\r\n                                                      <td width=\"560\" class=\"esd-container-frame\" align=\"center\" valign=\"top\">\r\n                                                         <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n                                                            <tbody>\r\n                                                               <tr>\r\n                                                                  <td align=\"center\" class=\"esd-block-text es-p10b es-m-txt-c\">\r\n                                                                     <h1 style=\"font-size:46px;line-height:100%;color:#011638\">Confirmación de orden</h1>\r\n                                                                  </td>\r\n                                                               </tr>\r\n                                                            </tbody>\r\n                                                         </table>\r\n                                                      </td>\r\n                                                   </tr>\r\n                                                </tbody>\r\n                                             </table>\r\n                                          </td>\r\n                                       </tr>\r\n                                    </tbody>\r\n                                 </table>\r\n                              </td>\r\n                           </tr>\r\n                        </tbody>\r\n                     </table>\r\n                     <table cellpadding=\"0\" cellspacing=\"0\" class=\"es-content\" align=\"center\">\r\n                        <tbody>\r\n                           <tr>\r\n                              <td class=\"esd-stripe\" align=\"center\" bgcolor=\"#cdcdcd\" style=\"background-color:#cdcdcd\">\r\n                                 <table bgcolor=\"#ffffff\" class=\"es-content-body\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\r\n                                    <tbody>\r\n                                       <tr>\r\n                                          <td class=\"esd-structure es-p20\" align=\"left\" bgcolor=\"#DFF8EB\" style=\"background-color:#DFF8EB\">\r\n                                             <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n                                                <tbody>\r\n                                                   <tr>\r\n                                                      <td width=\"560\" class=\"esd-container-frame\" align=\"center\" valign=\"top\">\r\n                                                         <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n                                                            <tbody>\r\n                                                               <tr>\r\n                                                                  <td align=\"center\" class=\"esd-block-text es-m-txt-c\">\r\n                                                                     <h2><span style=\"color:#011638\">Orden</span> <a target=\"_blank\" style=\"color:#364156\">{order.Id}</a></h2>\r\n                                                                  </td>\r\n                                                               </tr>\r\n                                                               <tr>\r\n                                                                  <td align=\"center\" class=\"esd-block-text es-p5t es-p5b es-p40r es-p40l es-m-p0r es-m-p0l\">\r\n                                                                     <p>{DateTime.Now}</p>\r\n                                                                  </td>\r\n                                                               </tr>\r\n                                                               <tr>\r\n                                                                  <td align=\"center\" class=\"esd-block-text es-p5t es-p15b es-p40r es-p40l es-m-p0r es-m-p0l\">\r\n                                                                     <p>Este correo electrónico confirma la orden de envío. Gracias por elegir Tango App.</p>\r\n                                                                  </td>\r\n                                                               </tr>\r\n                                                            </tbody>\r\n                                                         </table>\r\n                                                      </td>\r\n                                                   </tr>\r\n                                                </tbody>\r\n                                             </table>\r\n                                          </td>\r\n                                       </tr>\r\n                                       <tr>\r\n                                          <td class=\"esd-structure es-p20t es-p10b es-p20r es-p20l\" align=\"left\" bgcolor=\"#DFF8EB\" style=\"background-color:#DFF8EB\">\r\n                                             <!--[if mso]>\r\n                                             <table width=\"560\" cellpadding=\"0\" cellspacing=\"0\">\r\n                                                <tr>\r\n                                                   <td width=\"280\" valign=\"top\">\r\n                                                      <![endif]-->\r\n                                                      <table cellpadding=\"0\" cellspacing=\"0\" class=\"es-left\" align=\"left\">\r\n                                                         <tbody>\r\n                                                            <tr>\r\n                                                               <td width=\"280\" class=\"es-m-p0r esd-container-frame es-m-p20b\" align=\"center\">\r\n                                                                  <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n                                                                     <tbody>\r\n                                                                        <tr>\r\n                                                                           <td align=\"left\" class=\"esd-block-text\">\r\n                                                                              <p>Transportista: <strong>{quote.Transport.LastName}, {quote.Transport.FirstName}</strong></p>\r\n                                                                              <p>Número de orden:<strong>{quote.OrderId}</strong></p>\r\n                                                                              <p>Metodo de Pago: <strong>{quote.SelectedPaymentOption.Description}</strong></p>\r\n                                                                              <p>Monto: $<strong>{quote.Amount}</strong></p>\r\n                                                                           </td>\r\n                                                                        </tr>\r\n                                                                     </tbody>\r\n                                                                  </table>\r\n                                                               </td>\r\n                                                            </tr>\r\n                                                         </tbody>\r\n                                                      </table>\r\n                                                      <!--[if mso]>\r\n                                                   </td>\r\n                                                   <td width=\"0\"></td>\r\n                                                   <td width=\"280\" valign=\"top\">\r\n                                                      <![endif]-->\r\n                                                      <table cellpadding=\"0\" cellspacing=\"0\" class=\"es-right\" align=\"right\">\r\n                                                         <tbody>\r\n                                                            <tr>\r\n                                                               <td width=\"280\" class=\"es-m-p0r esd-container-frame\" align=\"center\">\r\n                                                                  <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n                                                                     <tbody>\r\n                                                                        <tr>\r\n                                                                           <td align=\"left\" class=\"esd-block-text es-m-txt-l\">\r\n                                                                              <p>Dirección de retiro: <strong>{order.OriginAddress}</strong></p>\r\n                                                                              <p>Fecha de retiro: <strong>{quote.PickUpDate}</strong></p>\r\n                                                                              <p>Dirección de entrega: <strong>{order.DestinationAddress}</strong></p>\r\n                                                                              <p>Dirección de entrega: <strong>{quote.DeliveryDate}</strong></p>\r\n                                                                           </td>\r\n                                                                        </tr>\r\n                                                                     </tbody>\r\n                                                                  </table>\r\n                                                               </td>\r\n                                                            </tr>\r\n                                                         </tbody>\r\n                                                      </table>\r\n                                                      <!--[if mso]>\r\n                                                   </td>\r\n                                                </tr>\r\n                                             </table>\r\n                                             <![endif]-->\r\n                                          </td>\r\n                                       </tr>\r\n                                       <tr>\r\n                                          <td class=\"esd-structure es-p15t es-p10b es-p20r es-p20l\" align=\"left\" bgcolor=\"#DFF8EB\" style=\"background-color:#DFF8EB\">\r\n                                             <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n                                                <tbody>\r\n                                                   <tr>\r\n                                                      <td width=\"560\" align=\"left\" class=\"esd-container-frame\">\r\n                                                         <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\r\n                                                            <tbody>\r\n                                                               <tr>\r\n                                                                  <td align=\"center\" class=\"esd-block-text es-p10t es-p10b\" bgcolor=\"#DFF8EB\">\r\n                                                                     <p>Para soporte contáctese a <a target=\"_blank\" href=\"mailto:\">support@tangoapp.com</a>.</p>\r\n                                                                  </td>\r\n                                                               </tr>\r\n                                                            </tbody>\r\n                                                         </table>\r\n                                                      </td>\r\n                                                   </tr>\r\n                                                </tbody>\r\n                                             </table>\r\n                                          </td>\r\n                                       </tr>\r\n                                    </tbody>\r\n                                 </table>\r\n                              </td>\r\n                           </tr>\r\n                        </tbody>\r\n                     </table>\r\n                  </td>\r\n               </tr>\r\n            </tbody>\r\n         </table>\r\n      </div>\r\n   </body>\r\n</html>";
         }
     }
 }

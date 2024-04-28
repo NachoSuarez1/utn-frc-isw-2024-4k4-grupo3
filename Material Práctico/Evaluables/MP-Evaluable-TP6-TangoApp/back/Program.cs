@@ -1,8 +1,11 @@
-using back.Repositories.Abstractions;
-using back.Repositories.Implementations;
+using back.Data;
+using back.Data.Repositories.Abstractions;
+using back.Data.Repositories.Implementations;
+using back.Services.EntityServices;
 using back.Services.Notifications;
 using back.Services.Payments;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,14 +16,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<IEmailSender, EmailSender>();
-builder.Services.AddTransient<IPaymentsServices, PaymentService>();
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
-builder.Services.AddSingleton<IOrderRepository, EFOrderRepository>();
-builder.Services.AddSingleton<IQuoteRepository, EFQuoteRepository>();
-builder.Services.AddSingleton<IUserRepository, EFUserRepository>();
-builder.Services.AddSingleton<IStateRepository, EFStateRepository>();
-builder.Services.AddSingleton<IPaymentOptionRepository, EFPaymentOptionRepository>();
+builder.Services.AddScoped<IUserRepository, EFUserRepository>();
+builder.Services.AddScoped<IPaymentOptionRepository, EFPaymentOptionRepository>();
+builder.Services.AddScoped<IStateRepository, EFStateRepository>();
+builder.Services.AddScoped<IOrderRepository, EFOrderRepository>();
+builder.Services.AddScoped<IQuoteRepository, EFQuoteRepository>();
+
+builder.Services.AddTransient<QuoteServices>();
+builder.Services.AddTransient<OrderServices>();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddTransient<IPaymentServices, DefaultPaymentServices>();
 
 var app = builder.Build();
 
