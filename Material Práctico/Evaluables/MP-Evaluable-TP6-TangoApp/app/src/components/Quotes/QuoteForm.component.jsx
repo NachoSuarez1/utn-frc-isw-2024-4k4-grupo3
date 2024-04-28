@@ -59,15 +59,22 @@ export const QuoteForm = ({ quote, submit }) => {
       const selected_payment_option = values.payment_options;
       const card = showCardFields
         ? {
-            card_type: values.card_type,
-            card_number: values.card_number,
+            cardType: values.card_type,
+            cardNumber: values.card_number,
             pin: values.pin,
-            full_name: values.full_name,
-            document_type: values.document_type,
-            document_number: values.document_number,
+            fullName: values.full_name,
+            documentType: values.document_type,
+            documentNumber: values.document_number,
           }
         : null;
-      // await validateCard(card);
+
+      const payment_method = {
+        paymentOption: selected_payment_option,
+        card: card
+      }
+
+      await validateCard(`/Get/${quote.order_id}/${quote.key}`,payment_method);
+
       const updatedQuote = {
         ...quote,
         selected_payment_option,
