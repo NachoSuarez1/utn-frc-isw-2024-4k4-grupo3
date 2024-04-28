@@ -32,7 +32,7 @@ namespace back.Services.EntityServices
 
         public Quote ConfirmQuote(int orderId, int quoteId, PaymentRequest paymentRequest)
         {
-            var orderQuotes = _quoteRepository.Quotes.Where(q => q.OrderId == orderId);
+            var orderQuotes = _quoteRepository.Quotes.Where(q => q.OrderId == orderId).ToList();
             if (!orderQuotes.Any() || !orderQuotes.Where(oq => oq.Id == quoteId).Any()) 
                 throw new Exception("La cotización a confirmar no existe");
 
@@ -57,7 +57,7 @@ namespace back.Services.EntityServices
 
         public void SetPending(int orderId)
         {
-            var orderQuotes = _quoteRepository.Quotes.Where(q => q.OrderId == orderId);
+            var orderQuotes = _quoteRepository.Quotes.Where(q => q.OrderId == orderId).ToList();
             var pendingState = _stateRepository.GetPending();
 
             foreach (var q in orderQuotes) {

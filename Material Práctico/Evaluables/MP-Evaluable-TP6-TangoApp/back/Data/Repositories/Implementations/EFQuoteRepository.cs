@@ -21,13 +21,13 @@ namespace back.Data.Repositories.Implementations
 
         public void Update(Quote quote)
         {
-            var dbQuote = _context.Quotes.Find(quote.Id);
-            if (dbQuote is not null)
-            {
+            var dbQuote = _context.Quotes.FirstOrDefault(q => q.Id == quote.Id && q.OrderId == quote.OrderId);
+            if (dbQuote is not null) {
                 dbQuote.State = quote.State;
                 dbQuote.SelectedPaymentOption = quote.SelectedPaymentOption;
+
+                _context.SaveChanges();
             }
-            _context.SaveChanges();
         }
     }
 }

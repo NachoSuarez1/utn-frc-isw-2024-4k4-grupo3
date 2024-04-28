@@ -21,8 +21,8 @@ namespace back.Controllers
             _emailSender = emailSender;
         }
 
-        [HttpGet("/Get/{orderId}/{quoteId?}")]
-        public async Task<IActionResult> Get(int? orderId, int? quoteId)
+        [HttpGet("/Get/{orderId}")]
+        public async Task<IActionResult> Get(int? orderId, int? quoteId = null)
         {
             if (orderId is null)
                 return BadRequest("El id de pedido no puede ser nulo!");
@@ -30,7 +30,7 @@ namespace back.Controllers
             return Ok(_quoteServices.Get(orderId.Value, quoteId));
         }
 
-        [HttpPut("/Confirm")]
+        [HttpPut("/Confirm/{orderId}/{quoteId?}")]
         public async Task<IActionResult> ConfirmQuote(int orderId, int quoteId, PaymentRequest paymentRequest)
         {
             try {

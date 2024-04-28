@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HVyZ5ZPBzeK4iXCXZUnjCmX/kBaYNEetThvYFGdzBgbA7gXDSGkEHEtDBHuj1pSQZSHFrz60nsFItPiljKzdEg==",
+  "dgSpecHash": "4nG4D72P3+JT7/R9N5cIFGgoYOSxocR7rQfOjrHzrpdI9HILpX+X2ZmcvDRLQNiLMZWdTDXcIQnsxjTt+cXeog==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\back.csproj",
+  "projectFilePath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Práctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\back.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jose\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\jose\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

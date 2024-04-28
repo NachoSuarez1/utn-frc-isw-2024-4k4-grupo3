@@ -4530,11 +4530,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\back.csproj",
+      "projectUniqueName": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Práctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\back.csproj",
       "projectName": "back",
-      "projectPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\back.csproj",
+      "projectPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Práctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\back.csproj",
       "packagesPath": "C:\\Users\\jose\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\back\\obj\\",
+      "outputPath": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Práctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
