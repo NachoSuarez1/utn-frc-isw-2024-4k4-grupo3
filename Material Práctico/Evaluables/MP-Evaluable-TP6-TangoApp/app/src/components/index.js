@@ -1,5 +1,5 @@
-import  { NavBar }  from './NavBar.component';
-import { TableQuotes } from './Quotes/TableQuotes.component';
-import { QuoteForm } from './Quotes/QuoteForm.component';
+import { NavBar } from "./NavBar.component";
+import { QuotesTable } from "./Quotes/QuotesTable.component";
+import { QuoteForm } from "./Quotes/QuoteForm.component";
 
-export { NavBar, TableQuotes, QuoteForm };
+export { NavBar, QuotesTable, QuoteForm };

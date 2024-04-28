@@ -1,10 +1,13 @@
 import React from "react";
-import { useState } from "react";
-import { TableQuotes } from "../components";
+import { useState, useEffect } from "react";
+import { QuotesTable } from "../components";
 import { colors } from "../config/colors";
+import { useParams } from "react-router-dom";
+import { quotesService } from "../services";
 
 export const QuotesScreen = () => {
   const [quotes, setQuotes] = useState([]);
+  const { orderId } = useParams();
 
   const dataSource = [
     {
@@ -15,7 +18,7 @@ export const QuotesScreen = () => {
       delivery_date: "28/04/2024",
       amount: 1000,
       payment_options: ["Contado al retirar", "Tarjeta"],
-      state: "Confirmada",
+      state: "Pendiente",
     },
     {
       key: "2",
@@ -29,10 +32,24 @@ export const QuotesScreen = () => {
     },
   ];
 
+  const getQuotes = async () => {
+    try {
+      // const response = await quotesService.get("quotes", { orderId });
+      // const data = await response.json();
+      setQuotes(dataSource);
+    } catch (error) {
+      console.error("Error al obtener las cotizaciones:", error);
+    }
+  };
+
+  useEffect(() => {
+    getQuotes();
+  }, []);
+
   return (
     <div className="quotes">
-      <h1 style={{ color: colors.oxfordBlue }}>Listado de Cotizaciones de Pedido #1234</h1>
-      <TableQuotes dataSource={dataSource} />;
+      <h1 style={{ color: colors.oxfordBlue }}>Listado de Cotizaciones de Pedido #{orderId}</h1>
+      <QuotesTable dataSource={quotes} orderId={orderId} />;
     </div>
   );
 };

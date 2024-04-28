@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { QuoteForm } from "../components";
-import { colors } from "../config/colors";
+import { useParams } from "react-router-dom";
+import { quotesService } from "../services";
 
 export const PaymentScreen = (props) => {
   const [quote, setQuote] = useState(null);
+  const { orderId, quoteId } = useParams();
 
   const myQuote = {
     key: "1",
@@ -15,11 +17,12 @@ export const PaymentScreen = (props) => {
     amount: 1000,
     payment_options: ["Contado al retirar", "Tarjeta"],
     state: "Confirmada",
+    order_id: "1234",
   };
 
   const getQuote = async () => {
     try {
-      // await props.getQuote(data);
+      // await quotesService.get({orderId: orderId,quoteId: quoteId});
       return myQuote;
     } catch (error) {
       alert({ type: "info", message: "No se ha encontrado ninguna cotizacion" });
@@ -28,18 +31,31 @@ export const PaymentScreen = (props) => {
     }
   };
 
-  const onPaymentSelect = async (payment, formValues) => {
+  const updateQuote = async (quote) => {
     try {
-      console.log("payment", payment);
-      console.log("formValues", formValues);
+      // await quotesService.put(quote);
     } catch (error) {
       alert({ type: "error", message: "Error al actualizar los datos" });
     }
   };
 
+  const submit = async (values) => {
+    try {
+      console.log("values", values);
+
+      // await updateQuote(values);
+    } catch (error) {
+      alert({ type: "error", message: "Error al actualizar los datos" });
+    }
+  };
+
+  useEffect(() => {
+    getQuote();
+  }, [quoteId]);
+
   return (
     <div className="quotes">
-      <QuoteForm quote={myQuote} />
+      <QuoteForm quote={myQuote} submit={submit} />
     </div>
   );
 };

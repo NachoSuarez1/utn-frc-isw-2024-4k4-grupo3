@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { Table, Tag, Button, Rate } from "antd";
 import { useState } from "react";
 import { colors } from "../../config/colors";
-import "../css/TableQuotes.css";
+import "../css/QuotesTable.css";
 
-export const TableQuotes = (props) => {
+export const QuotesTable = (props) => {
   const isQuoteConfirmed = props.dataSource.find((quote) => quote.state === "Confirmada");
 
   const columns = [
@@ -69,19 +69,30 @@ export const TableQuotes = (props) => {
       ),
     },
     {
+      title: "Estado",
+      dataIndex: "state",
+      key: "state",
+    },
+    {
       title: "Acción",
       key: "action",
-      render: (_, quote) => (
-        <Link to={`/quotes/${quote.key}`}>
-          <Button
-            type="primary"
-            className="btn-confirm"
-            style={{ backgroundColor: colors.oxfordBlue }}
-          >
-            Seleccionar
-          </Button>
-        </Link>
-      ),
+      render: (_, quote) => {
+        if (!isQuoteConfirmed) {
+          return (
+            <Link to={`/quotes/${props.orderId}/${quote.key}`}>
+              <Button
+                type="primary"
+                className="btn-confirm"
+                style={{ backgroundColor: colors.oxfordBlue }}
+              >
+                Seleccionar
+              </Button>
+            </Link>
+          );
+        } else {
+          return null; // O cualquier otro contenido que desees renderizar si la cotización está confirmada
+        }
+      },
     },
   ];
 

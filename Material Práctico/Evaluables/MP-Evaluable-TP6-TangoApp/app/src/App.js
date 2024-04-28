@@ -10,16 +10,12 @@ function App() {
       <div className="App">
         <NavBar />
         <Routes>
-          <Route path="/quotes" element={<QuotesScreen />}/>
-          <Route path="/quotes/:key" element={<PaymentScreen />}/>
-
-{/* 
-          <Route path="/search" element={<PokemonSearch />}/>
-          <Route path="/pokemon/:name" element={<PokemonDetails />} /> */}
+          <Route path="/quotes/:orderId" element={<QuotesScreen />} />
+          <Route path="/quotes/:orderId/:quoteId" element={<PaymentScreen />} />
         </Routes>
       </div>
     </Router>
-  )
+  );
 }
 
 export default App;
