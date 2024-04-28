@@ -67,7 +67,14 @@ export const QuoteForm = ({ quote, submit }) => {
             document_number: values.document_number,
           }
         : null;
-      // await validateCard(card);
+
+      const payment_method = {
+        payment_option: selected_payment_option,
+        card: card
+      }
+
+      await validateCard(`/Get/${quote.order_id}/${quote.key}`,payment_method);
+      
       const updatedQuote = {
         ...quote,
         selected_payment_option,
