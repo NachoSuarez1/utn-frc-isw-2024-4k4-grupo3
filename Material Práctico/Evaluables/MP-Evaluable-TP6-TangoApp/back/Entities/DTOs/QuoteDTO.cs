@@ -8,6 +8,7 @@
         public string DeliveryDate { get; set; }
         public int Amount { get; set; }
         public string Transport { get; set; }
+        public int Qualification { get; set; }
         public string State { get; set; }
         public string? SelectedPaymentOption { get; set; }
         public List<string> PaymentOptions { get; set; }
@@ -21,6 +22,7 @@
                 DeliveryDate = q.DeliveryDate,
                 Amount = q.Amount,
                 Transport = $"{q.Transport.FirstName} {q.Transport.LastName}",
+                Qualification = q.Transport.Qualification,
                 State = q.State.Description,
                 SelectedPaymentOption = q.SelectedPaymentOption?.Description,
                 PaymentOptions = q.PaymentOptions.Select(x => x.Description).ToList()

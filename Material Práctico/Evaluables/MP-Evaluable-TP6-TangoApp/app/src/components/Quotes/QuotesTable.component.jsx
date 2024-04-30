@@ -11,8 +11,8 @@ export const QuotesTable = (props) => {
   const columns = [
     {
       title: "Transportista",
-      dataIndex: "transport_name",
-      key: "transport_name",
+      dataIndex: "transport",
+      key: "transport",
     },
     {
       title: "Calificación",
@@ -24,13 +24,13 @@ export const QuotesTable = (props) => {
     },
     {
       title: "Fecha de Retiro",
-      dataIndex: "pick_up_date",
-      key: "pick_up_date",
+      dataIndex: "pickUpDate",
+      key: "pickUpDate",
     },
     {
       title: "Fecha de Entrega",
-      dataIndex: "delivery_date",
-      key: "delivery_date",
+      dataIndex: "deliveryDate",
+      key: "deliveryDate",
     },
     {
       title: "Monto",
@@ -40,11 +40,11 @@ export const QuotesTable = (props) => {
     },
     {
       title: "Formas de Pago",
-      key: "payment_options",
-      dataIndex: "payment_options",
-      render: (_, { payment_options }) => (
+      key: "paymentOptions",
+      dataIndex: "paymentOptions",
+      render: (_, { paymentOptions }) => (
         <>
-          {payment_options.map((payment_option) => {
+          {paymentOptions.map((payment_option) => {
             let color;
             switch (payment_option) {
               case "Contado al retirar":
