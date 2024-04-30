@@ -28,9 +28,4 @@
                    DocumentNumber == card.DocumentNumber;
         }
     }
-
-    public class PaymentResponse
-    {
-
-    }
 }

@@ -6,7 +6,7 @@ export const NavBar = () => {
     <nav className="nav-bar">
       <ul>
         <li>
-          <Link className="nav-item" to="/quotes/1234">
+          <Link className="nav-item" to="/quotes/1">
             Cotizaciones de mi ultimo pedido
           </Link>
         </li>

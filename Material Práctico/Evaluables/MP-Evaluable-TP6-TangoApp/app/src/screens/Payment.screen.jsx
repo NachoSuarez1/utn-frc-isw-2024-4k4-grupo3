@@ -2,61 +2,72 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { QuoteForm } from "../components";
 import { useParams } from "react-router-dom";
+import { colors } from "../config/colors";
+import { Modal } from "antd";
 import { quotesService } from "../services";
 
 export const PaymentScreen = (props) => {
   const [quote, setQuote] = useState(null);
   const { orderId, quoteId } = useParams();
 
-  const myQuote = {
-    id: "1",
-    transport_name: "Mike",
-    qualification: 1,
-    pick_up_date: "28/04/2024",
-    delivery_date: "28/04/2024",
-    amount: 1000,
-    payment_options: ["Contado al retirar", "Tarjeta"],
-    state: "Confirmada",
-    order_id: "1234",
-  };
-
   const getQuote = async () => {
     try {
-      // await quotesService.get({orderId: orderId,quoteId: quoteId});
-      return myQuote;
+      const response = await quotesService.get(`Get/${orderId}/?quoteId=${quoteId}`);
+      console.log(response);
+      if (response && response.length > 0) {
+        response[0].paymentOptions.unshift(null);
+        setQuote(response[0]);
+      } else {
+        throw new Error("No se ha encontrado ninguna cotización");
+      }
     } catch (error) {
-      alert({ type: "info", message: "No se ha encontrado ninguna cotizacion" });
-    } finally {
-      setQuote(myQuote);
+      alert({ type: "info", message: error.message });
     }
   };
 
-  const updateQuote = async (quote) => {
-    try {
-      // await quotesService.put(quote);
-    } catch (error) {
-      alert({ type: "error", message: "Error al actualizar los datos" });
-    }
+  const onSuccess = () => {
+    Modal.success({
+      content: "Confirmado",
+      centered: true,
+      style: { color: colors.oxfordBlue },
+      okButtonProps: {
+        style: { backgroundColor: colors.green, color: "white" },
+        onClick: () => {
+          window.location.href = "/quotes/" + quote.orderId;
+        },
+      },
+    });
   };
 
-  const submit = async (values) => {
+  const onError = (error) => {
+    Modal.error({
+      title: "Error",
+      content: error.message ? error.message : "Por favor, revisa los campos ingresados.",
+      centered: true,
+      okButtonProps: { style: { backgroundColor: colors.oxfordBlue, color: "white" } },
+    });
+  };
+
+  const submit = async (endpoint, values) => {
     try {
       console.log("values", values);
-
-      // await quotesService.put(endpoint, values);
-      window.location.href = "/quotes/" + orderId;
+      if(values.paymentOption == null){
+        throw Error("Debe seleccionar un tipo de pago");
+      }
+      const response = await quotesService.put(endpoint, values);
+      onSuccess();
     } catch (error) {
-      alert({ type: "error", message: "Error al actualizar los datos" });
+      onError(error);
     }
   };
 
   useEffect(() => {
-    getQuote();
-  }, [quoteId]);
+    getQuote(); // Llamar a getQuote en useEffect
+  }, [orderId, quoteId]); // Asegurarse de que useEffect se ejecute cuando cambien orderId o quoteId
 
   return (
     <div className="quotes">
-      <QuoteForm quote={myQuote} submit={submit} />
+      {(quote && quote.state === "Pendiente") && <QuoteForm quote={quote} submit={submit} />}
     </div>
   );
 };

@@ -10,8 +10,7 @@ namespace back.Services.Payments
 
         public DefaultPaymentServices()
         {
-            _cards =
-            [
+            _cards = [
                 // ● Probar pagar la cotización con tarjeta de crédito vigente y con saldo (pasa)
                 // ● Probar pagar la cotización con tarjeta de crédito con datos no válido (falla)
                 new CardInfo() { 
@@ -23,8 +22,7 @@ namespace back.Services.Payments
                     DocumentNumber = "43000000"
                 },
                 // ● Probar pagar la cotización con tarjeta de crédito sin saldo suficiente (falla)
-                new CardInfo()
-                {
+                new CardInfo() {
                     CardType = "Crédito",
                     CardNumber = "5520000000000000",
                     Pin = "123",
@@ -34,8 +32,7 @@ namespace back.Services.Payments
                 },
                 // ● Probar pagar la cotización con tarjeta de débito vigente y con saldo (pasa)
                 // ● Probar pagar la cotización con tarjeta de débito con datos no válido (falla)
-                new CardInfo()
-                {
+                new CardInfo() {
                     CardType = "Débito",
                     CardNumber = "4000000000000002",
                     Pin = "987",
@@ -44,8 +41,7 @@ namespace back.Services.Payments
                     DocumentNumber = "43000000"
                 },
                 // ● Probar pagar la cotización con tarjeta de débito sin saldo suficiente (falla)
-                new CardInfo()
-                {
+                new CardInfo() {
                     CardType = "Débito",
                     CardNumber = "5510000000000002",
                     Pin = "987",
@@ -59,9 +55,8 @@ namespace back.Services.Payments
         public PaymentOption ProcessPayment(PaymentRequest paymentRequest, IPaymentOptionRepository repository) 
         {
             var payment = repository.PaymentOptions.Where(po => po.Description == paymentRequest.PaymentOption).First();
-            if (payment.IsCard()) {
+            if (payment.IsCard())
                 ValidateCard(paymentRequest.Card);
-            }
 
             return payment;
         }

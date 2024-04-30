@@ -12,18 +12,20 @@ const api = axios.create({
 const get = async (endpoint) => {
   try {
     const response = await api.get(endpoint);
+    console.log(response);
     return response.data;
   } catch (error) {
     throw new Error("Error al obtener datos del servidor.");
   }
 };
 
-const put = async (endpoint, data) => {
+const put = async (endpoint, values) => {
   try {
-    const response = await api.get(endpoint, data);
+    const response = await api.put(endpoint, values);
     return response.data;
   } catch (error) {
-    throw new Error("Error al obtener datos del servidor.");
+    console.log(error.response.data)
+    throw new Error(error.response.data);
   }
 };
 

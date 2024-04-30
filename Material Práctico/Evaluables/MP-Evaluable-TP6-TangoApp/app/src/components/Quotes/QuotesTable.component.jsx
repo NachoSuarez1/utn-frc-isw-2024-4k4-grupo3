@@ -6,8 +6,8 @@ import { colors } from "../../config/colors";
 import "../css/QuotesTable.css";
 
 export const QuotesTable = (props) => {
-  const isQuoteConfirmed = props.dataSource.find((quote) => quote.state === "Confirmada");
-
+  const isQuoteConfirmed = props.dataSource.find((quote) => quote.state === "Confirmado");
+  const isSelectedPaymentOption = (paymentOption, selectedOption) => selectedOption !== null & paymentOption === selectedOption;
   const columns = [
     {
       title: "Transportista",
@@ -42,22 +42,22 @@ export const QuotesTable = (props) => {
       title: "Formas de Pago",
       key: "paymentOptions",
       dataIndex: "paymentOptions",
-      render: (_, { paymentOptions }) => (
+      render: (_, { paymentOptions, selectedPaymentOption }) => (
         <>
           {paymentOptions.map((payment_option) => {
             let color;
             switch (payment_option) {
               case "Contado al retirar":
-                color = "geekblue";
+                color = isSelectedPaymentOption(payment_option, selectedPaymentOption) ? "green" : "geekblue";
                 break;
               case "Contado contra entrega":
-                color = colors.charcoal;
+                color = isSelectedPaymentOption(payment_option, selectedPaymentOption)  ? "green" : colors.charcoal;
                 break;
               case "Tarjeta":
-                color = colors.oxfordBlue;
+                color = isSelectedPaymentOption(payment_option, selectedPaymentOption)  ? "green" : colors.oxfordBlue;
                 break;
               default:
-                color = colors.silver;
+                color = isSelectedPaymentOption(payment_option, selectedPaymentOption)  ? "green" : colors.silver;
             }
             return (
               <Tag color={color} key={payment_option} typeof="">
@@ -76,7 +76,9 @@ export const QuotesTable = (props) => {
     {
       title: "Acción",
       key: "action",
+      hidden: isQuoteConfirmed,
       render: (_, quote) => {
+        console.log(props.dataSource.find((quote) => quote.state === "Confirmada"));
         if (!isQuoteConfirmed) {
           return (
             <Link to={`/quotes/${props.orderId}/${quote.id}`}>
@@ -94,8 +96,9 @@ export const QuotesTable = (props) => {
         }
       },
     },
-  ];
+  ].filter(item => !item.hidden);
 
+  console.log(columns);
   return (
     <div>
       <Table dataSource={props.dataSource} columns={columns} />

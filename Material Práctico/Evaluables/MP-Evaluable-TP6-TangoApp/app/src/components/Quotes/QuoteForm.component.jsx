@@ -7,12 +7,12 @@ const { Option } = Select;
 
 export const QuoteForm = ({ quote, submit }) => {
   const [form] = Form.useForm();
-  const [paymentMethod, setPaymentMethod] = useState("");
+  const [paymentOption, setPaymentOption] = useState(null);
   const [cardType, setCardType] = useState("");
   const [showCardFields, setShowCardFields] = useState(false);
 
   const handlePaymentMethodChange = (value) => {
-    setPaymentMethod(value);
+    setPaymentOption(value)
     setCardType("");
     setShowCardFields(value === "Tarjeta");
   };
@@ -29,34 +29,11 @@ export const QuoteForm = ({ quote, submit }) => {
     }
   };
 
-  const onSuccess = (endpoint, paymentMethod) => {
-    Modal.success({
-      content: "Confirmado",
-      centered: true,
-      style: { color: colors.oxfordBlue },
-      okButtonProps: {
-        style: { backgroundColor: colors.green, color: "white" },
-        onClick: () => {
-          submit(endpoint, paymentMethod);
-        },
-      },
-    });
-  };
-
-  const onError = (error) => {
-    Modal.error({
-      title: "Error",
-      content: error.message ? error.message : "Por favor, revisa los campos ingresados.",
-      centered: true,
-      okButtonProps: { style: { backgroundColor: colors.oxfordBlue, color: "white" } },
-    });
-  };
-
   const submitForm = async () => {
     try {
       const values = await form.validateFields();
-      const selectedPaymentOption = values.payment_options;
-      const card = showCardFields
+      const selectedPaymentOption = paymentOption;
+      const card = showCardFields 
         ? {
             cardType: values.card_type,
             cardNumber: values.card_number,
@@ -68,23 +45,22 @@ export const QuoteForm = ({ quote, submit }) => {
         : null;
 
       const paymentMethod = {
-        payment_option: selectedPaymentOption,
+        paymentOption: selectedPaymentOption,
         card: card,
       };
 
-      const endpoint = `/quotes/${quote.order_id}/${quote.id}`;
-
-      onSuccess(endpoint, paymentMethod);
+      const endpoint = `/Confirm/${quote.orderId}/${quote.id}`;
+      console.log(paymentMethod)
+      await submit(endpoint, paymentMethod);
     } catch (error) {
       console.error("Validation failed:", error);
-      onError(error);
     }
   };
 
   const formItemStyle = {
     maxWidth: 300,
   };
-
+  
   return (
     <div style={{ padding: 50, textAlign: "center" }}>
       <h1 style={{ color: colors.oxfordBlue }}>Cotización #{quote.id}</h1>
@@ -97,7 +73,7 @@ export const QuoteForm = ({ quote, submit }) => {
       >
         <Row gutter={24}>
           <Col span={showCardFields ? 12 : 24}>
-            <Form.Item label="Transportista" name="transport_name" style={formItemStyle}>
+            <Form.Item label="Transportista" name="transport" style={formItemStyle}>
               <Input disabled style={{ color: colors.oxfordBlue }} />
             </Form.Item>
 
@@ -109,11 +85,11 @@ export const QuoteForm = ({ quote, submit }) => {
               />
             </Form.Item>
 
-            <Form.Item label="Fecha de Retiro" name="pick_up_date" style={formItemStyle}>
+            <Form.Item label="Fecha de Retiro" name="pickUpDate" style={formItemStyle}>
               <Input disabled style={{ color: colors.oxfordBlue }} />
             </Form.Item>
 
-            <Form.Item label="Fecha de Entrega" name="delivery_date" style={formItemStyle}>
+            <Form.Item label="Fecha de Entrega" name="deliveryDate" style={formItemStyle}>
               <Input disabled style={{ color: colors.oxfordBlue }} />
             </Form.Item>
 
@@ -123,12 +99,12 @@ export const QuoteForm = ({ quote, submit }) => {
 
             <Form.Item
               label="Forma de Pago"
-              name="payment_options"
+              name="paymentOptions"
               style={formItemStyle}
               rules={[{ required: true, message: "La forma de pago no fue ingresada" }]}
             >
               <Select onChange={handlePaymentMethodChange}>
-                {quote.payment_options.map((option) => (
+                {quote.paymentOptions.map((option) => (
                   <Option key={option} value={option}>
                     {option}
                   </Option>

@@ -15,5 +15,11 @@ namespace back.Entities
         public State State { get; set; }
         public PaymentOption? SelectedPaymentOption { get; set; }
         public ICollection<PaymentOption> PaymentOptions { get; set; }
+
+        public void Update(Quote q)
+        {
+            State = q.State;
+            SelectedPaymentOption = q.SelectedPaymentOption;
+        }
     }
 }
