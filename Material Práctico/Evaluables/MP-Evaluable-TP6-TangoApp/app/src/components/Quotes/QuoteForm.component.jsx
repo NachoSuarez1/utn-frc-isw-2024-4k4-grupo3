@@ -29,7 +29,7 @@ export const QuoteForm = ({ quote, submit }) => {
     }
   };
 
-  const onSuccess = (updatedQuote) => {
+  const onSuccess = (endpoint, paymentMethod) => {
     Modal.success({
       content: "Confirmado",
       centered: true,
@@ -37,8 +37,7 @@ export const QuoteForm = ({ quote, submit }) => {
       okButtonProps: {
         style: { backgroundColor: colors.green, color: "white" },
         onClick: () => {
-          submit(updatedQuote);
-          window.location.href = "/quotes/" + updatedQuote.order_id;
+          submit(endpoint, paymentMethod);
         },
       },
     });
@@ -56,7 +55,7 @@ export const QuoteForm = ({ quote, submit }) => {
   const submitForm = async () => {
     try {
       const values = await form.validateFields();
-      const selected_payment_option = values.payment_options;
+      const selectedPaymentOption = values.payment_options;
       const card = showCardFields
         ? {
             cardType: values.card_type,
@@ -68,20 +67,14 @@ export const QuoteForm = ({ quote, submit }) => {
           }
         : null;
 
-      const payment_method = {
-        paymentOption: selected_payment_option,
-        card: card
-      }
-
-      await validateCard(`/Get/${quote.order_id}/${quote.key}`,payment_method);
-
-      const updatedQuote = {
-        ...quote,
-        selected_payment_option,
-        card,
+      const paymentMethod = {
+        payment_option: selectedPaymentOption,
+        card: card,
       };
-      console.log("Updated Quote:", updatedQuote);
-      onSuccess(updatedQuote);
+
+      const endpoint = `/quotes/${quote.order_id}/${quote.id}`;
+
+      onSuccess(endpoint, paymentMethod);
     } catch (error) {
       console.error("Validation failed:", error);
       onError(error);
@@ -94,7 +87,7 @@ export const QuoteForm = ({ quote, submit }) => {
 
   return (
     <div style={{ padding: 50, textAlign: "center" }}>
-      <h1 style={{ color: colors.oxfordBlue }}>Cotización #{quote.key}</h1>
+      <h1 style={{ color: colors.oxfordBlue }}>Cotización #{quote.id}</h1>
       <Form
         form={form}
         name="quoteForm"

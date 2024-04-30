@@ -11,7 +11,7 @@ export const QuotesScreen = () => {
 
   const dataSource = [
     {
-      key: "1",
+      id: "1",
       transport_name: "Mike",
       qualification: 1,
       pick_up_date: "28/04/2024",
@@ -21,7 +21,7 @@ export const QuotesScreen = () => {
       state: "Pendiente",
     },
     {
-      key: "2",
+      id: "2",
       transport_name: "John",
       qualification: 5,
       pick_up_date: "28/04/2024",

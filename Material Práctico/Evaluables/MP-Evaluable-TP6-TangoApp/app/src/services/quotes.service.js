@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const BASE_URL = "http://localhost:4000/";
-const endpoint = "quotes";
 const api = axios.create({
   baseURL: BASE_URL,
   headers: {
@@ -11,16 +10,16 @@ const api = axios.create({
 
 const get = async (filters) => {
   try {
-    const response = await api.get({ params: filters });
+    const response = await api.get("quotes", { params: filters });
     return response.data;
   } catch (error) {
     throw new Error("Error al obtener datos del servidor.");
   }
 };
 
-const put = async (data) => {
+const put = async (endpoint, data) => {
   try {
-    const response = await api.get(data);
+    const response = await api.get(endpoint, data);
     return response.data;
   } catch (error) {
     throw new Error("Error al obtener datos del servidor.");

@@ -9,7 +9,7 @@ export const PaymentScreen = (props) => {
   const { orderId, quoteId } = useParams();
 
   const myQuote = {
-    key: "1",
+    id: "1",
     transport_name: "Mike",
     qualification: 1,
     pick_up_date: "28/04/2024",
@@ -43,7 +43,8 @@ export const PaymentScreen = (props) => {
     try {
       console.log("values", values);
 
-      // await updateQuote(values);
+      // await quotesService.put(endpoint, values);
+      window.location.href = "/quotes/" + orderId;
     } catch (error) {
       alert({ type: "error", message: "Error al actualizar los datos" });
     }

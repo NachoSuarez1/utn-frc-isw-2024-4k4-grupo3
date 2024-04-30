@@ -79,7 +79,7 @@ export const QuotesTable = (props) => {
       render: (_, quote) => {
         if (!isQuoteConfirmed) {
           return (
-            <Link to={`/quotes/${props.orderId}/${quote.key}`}>
+            <Link to={`/quotes/${props.orderId}/${quote.id}`}>
               <Button
                 type="primary"
                 className="btn-confirm"

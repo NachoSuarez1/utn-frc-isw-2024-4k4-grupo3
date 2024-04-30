@@ -6,8 +6,8 @@ export const NavBar = () => {
     <nav className="nav-bar">
       <ul>
         <li>
-          <Link className="nav-item" to="/quotes">
-            Cotizaciones de mis Pedidos
+          <Link className="nav-item" to="/quotes/1234">
+            Cotizaciones de mi ultimo pedido
           </Link>
         </li>
       </ul>
