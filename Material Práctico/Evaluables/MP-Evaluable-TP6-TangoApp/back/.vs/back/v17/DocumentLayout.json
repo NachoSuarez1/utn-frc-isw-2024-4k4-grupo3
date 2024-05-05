@@ -90,8 +90,7 @@
               "RelativeToolTip": "Entities\\DTOs\\QuoteDTO.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAAowBoAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T20:14:22.236Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-30T20:14:22.236Z"
             },
             {
               "$type": "Document",
@@ -101,7 +100,7 @@
               "RelativeDocumentMoniker": "Services\\Payments\\DefaultPaymentServices.cs",
               "ToolTip": "C:\\Users\\jose\\OneDrive\\Desktop\\UTN - 2024\\ISW\\utn-frc-isw-2024-4k4-grupo3\\Material Pr\u00E1ctico\\Evaluables\\MP-Evaluable-TP6-TangoApp\\back\\Services\\Payments\\DefaultPaymentServices.cs",
               "RelativeToolTip": "Services\\Payments\\DefaultPaymentServices.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwCMAAAAoAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwCgAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-30T19:56:25.151Z",
               "EditorCaption": ""
@@ -116,8 +115,7 @@
               "RelativeToolTip": "Controllers\\QuotesController.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAUwCoAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T13:39:18.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-30T13:39:18.316Z"
             }
           ]
         }
