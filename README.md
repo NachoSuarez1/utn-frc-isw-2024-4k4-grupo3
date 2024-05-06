@@ -56,6 +56,7 @@
 |Línea Base|Fecha|Descripción|
 |----------|-----|-----------|
 |LB-G03-1|2024/04/02|Entrega de TP4 - Herramientas de SCM|
+|LB-G03-2|2024/05/06|Entrega de TP6 - Implementación de User Stories|
 
 ```
 Las líneas base se identificarán con la siguiente etiqueta:
