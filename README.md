@@ -57,6 +57,7 @@
 |----------|-----|-----------|
 |LB-G03-1|2024/04/02|Entrega de TP4 - Herramientas de SCM|
 |LB-G03-2|2024/05/06|Entrega de TP6 - Implementación de User Stories|
+|LB-G03-3|2024/05/20|Entrega de TP7 - Scrum|
 
 ```
 Las líneas base se identificarán con la siguiente etiqueta:
