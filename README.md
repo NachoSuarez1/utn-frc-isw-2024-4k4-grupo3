@@ -56,8 +56,8 @@
 |Línea Base|Fecha|Descripción|
 |----------|-----|-----------|
 |LB-G03-1|2024/04/02|Entrega de TP4 - Herramientas de SCM|
-|LB-G03-2|2024/05/06|Entrega de TP6 - Implementación de User Stories|
-|LB-G03-3|2024/05/20|Entrega de TP7 - Scrum|
+|LB-G03-2|2024/05/06|Esta linea base contiene una nueva versión del repositorio. Se implemento el TP nro 6, de "Implementación de User Stories". Se llevo adelante una revisión de la configuración del repositorio, y se llego a la conclusión de crear una nueva linea base.|
+|LB-G03-3|2024/05/20|Desde la ultima definición de linea base, se rindió el primer parcial de la materia, y se entregaron los trabajos prácticos numero 8 y 7 (en ese orden). Se realizo una reunión en el equipo y se acordó que era necesario la definición de una nueva linea base.|
 
 ```
 Las líneas base se identificarán con la siguiente etiqueta:
