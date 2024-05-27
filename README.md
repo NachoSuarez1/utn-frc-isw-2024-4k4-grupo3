@@ -67,5 +67,5 @@ LB-G03-<NroLineaBase>
 <NroLineaBase> va a ser un número entero comenzando con el 1 e irá incrementando en una unidad.
 
 La revisión de cambios se realizará el Lunes posterior a un Parcial o entrega de Trabajo Práctico Evaluable, 
-y en caso de ser necesario se procederá a la creación de una nueva Linea Base.
+y se procederá a la creación de una nueva Linea Base.
 ```
