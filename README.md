@@ -56,9 +56,10 @@
 |Línea Base|Fecha|Descripción|
 |----------|-----|-----------|
 |LB-G03-1|2024/04/02|Entrega de TP4 - Herramientas de SCM|
-|LB-G03-2|2024/05/06|Esta linea base contiene una nueva versión del repositorio. Se implemento el TP nro 6, de "Implementación de User Stories". Se llevo adelante una revisión de la configuración del repositorio, y se llego a la conclusión de crear una nueva linea base.|
-|LB-G03-3|2024/05/20|Desde la ultima definición de linea base, se rindió el primer parcial de la materia, y se entregaron los trabajos prácticos numero 8 y 7 (en ese orden). Se realizo una reunión en el equipo y se acordó que era necesario la definición de una nueva linea base.|
-|LB-G03-4|2024/06/17|Nueva definición de linea base incorporando el TP Evaluable 11 "Ejecución de Casos de Prueba". Se llevo adelante una revision de la configuración del repositorio, y se llego a la conclusión de crear una nueva linea base.|
+|LB-G03-2|2024/05/06|Esta línea base contiene una nueva versión del repositorio. Se implemento el TP nro 6, de "Implementación de User Stories". Se llevo adelante una revisión de la configuración del repositorio, y se llego a la conclusión de crear una nueva línea base.|
+|LB-G03-3|2024/05/20|Desde la ultima definición de línea base, se rindió el primer parcial de la materia, y se entregaron los trabajos prácticos numero 8 y 7 (en ese orden). Se realizo una reunión en el equipo y se acordó que era necesario la definición de una nueva línea base.|
+|LB-G03-4|2024/06/17|Nueva definición de línea base incorporando el TP Evaluable 11 "Ejecución de Casos de Prueba". Se llevo adelante una revision de la configuración del repositorio, y se llego a la conclusión de crear una nueva línea base.|
+|LB-G03-5|2024/06/24|Definición de línea base posterior al segundo parcial de la materia. Se hicieron algunas correcciones en algunos nombres de archivos y se agregaron algunos trabajos prácticos no evaluables. Se llevó a cabo una revisión de la configuración del repositorio y se llegó a la conclusión de crear una nueva línea base.|
 ```
 Las líneas base se identificarán con la siguiente etiqueta:
 
