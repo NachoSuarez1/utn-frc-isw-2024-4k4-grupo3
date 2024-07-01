@@ -60,6 +60,7 @@
 |LB-G03-3|2024/05/20|Desde la ultima definición de línea base, se rindió el primer parcial de la materia, y se entregaron los trabajos prácticos numero 8 y 7 (en ese orden). Se realizo una reunión en el equipo y se acordó que era necesario la definición de una nueva línea base.|
 |LB-G03-4|2024/06/17|Nueva definición de línea base incorporando el TP Evaluable 11 "Ejecución de Casos de Prueba". Se llevo adelante una revision de la configuración del repositorio, y se llego a la conclusión de crear una nueva línea base.|
 |LB-G03-5|2024/06/24|Definición de línea base posterior al segundo parcial de la materia. Se hicieron algunas correcciones en algunos nombres de archivos y se agregaron algunos trabajos prácticos no evaluables. Se llevó a cabo una revisión de la configuración del repositorio y se llegó a la conclusión de crear una nueva línea base.|
+|LB-G03-6|2024/07/01|Nueva definición de línea base incorporando los TP evaluables 12 y 13, y tambien agregando el trabajo conceptual 2 "Charla TED". Se realizo una reunión en el equipo y se acordó que era necesario la definición de una nueva línea base.|
 ```
 Las líneas base se identificarán con la siguiente etiqueta:
 
